@@ -1,24 +1,24 @@
-# Аналитик для OpenCode
+# Аналитик
 
-Skill системного аналитика для корпоративного ноутбука. Он читает Jira, Confluence и PostgreSQL через **уже подключённые локальные MCP**, отдельно собирает полный список задач, сохраняет исходный контекст и формирует один `task.md` с постановкой и PlantUML.
+Skill системного аналитика для агентных сред, поддерживающих `SKILL.md` и MCP. Он читает Jira, Confluence и PostgreSQL через подключённые MCP, отдельно собирает список задач, сохраняет исходный контекст и формирует один `task.md` с постановкой и PlantUML.
 
 ## Установка
 
-OpenCode ищет skills в `~/.config/opencode/skills/<name>/SKILL.md` и в `.opencode/skills/<name>/SKILL.md` проекта. Склонируйте этот репозиторий в глобальный каталог skills:
+Склонируйте репозиторий и подключите `SKILL.md` по правилам используемого агента. Агенту нужны доступ к Jira MCP, Confluence MCP, PostgreSQL MCP и право записать `task.md`.
 
 ```sh
-git clone https://github.com/MorevPro/analyst-skill.git ~/.config/opencode/skills/analyst
+git clone https://github.com/MorevPro/analyst-skill.git analyst-skill
 ```
 
 Для обновления:
 
 ```sh
-git -C ~/.config/opencode/skills/analyst pull --ff-only
+git -C analyst-skill pull --ff-only
 ```
 
 ## Запуск
 
-Запустите `opencode` и введите запрос:
+В агенте, которому подключён skill, введите запрос:
 
 ```text
 Используй skill analyst. Вызови Jira MCP, Confluence MCP и PostgreSQL MCP для задачи ABC-123. Получи список связанных задач отдельным вызовом Jira MCP, затем собери полный контекст по каждому источнику. Подготовь единый task.md с исходными данными, системным анализом и PlantUML.
