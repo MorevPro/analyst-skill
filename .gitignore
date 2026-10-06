@@ -1,0 +1,6 @@
+task.md
+tasks/
+.env
+.env.*
+*.pem
+*.key
